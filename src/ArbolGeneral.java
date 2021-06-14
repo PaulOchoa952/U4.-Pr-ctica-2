@@ -42,19 +42,7 @@ public class ArbolGeneral {
     NodoGeneral nuevo= new NodoGeneral(dato);
     return padre.enlazar(nuevo);
     }
-private NodoGeneral buscarNodo(NodoGeneral Dad, String[] vector, int aux){
-   // System.out.print("Entra a buscar nodo");
-        if(i<vector.length){     
-             
-            Dad = Dad.obtenerHijo(vector[i].charAt(0));
-            if(Dad == null) return null;
-            i=i++;
-            //System.out.print("Inserta:"+vector[i]);
-            //Gpi
-            Dad = buscarNodo(Dad, vector, i);
-        }
-        return Dad;
-    }
+
     
     private NodoGeneral buscarNodo(String path){
         path = path.substring(1);
@@ -69,6 +57,19 @@ private NodoGeneral buscarNodo(NodoGeneral Dad, String[] vector, int aux){
         return null;
     }
     
+    private NodoGeneral buscarNodo(NodoGeneral Dad, String[] vector, int aux){
+   // System.out.print("Entra a buscar nodo");
+        if(i<vector.length){     
+             
+            Dad = Dad.obtenerHijo(vector[i].charAt(0));
+            if(Dad == null) return null;
+            i=i++;
+            //System.out.print("Inserta:"+vector[i]);
+            //Gpi
+            Dad = buscarNodo(Dad, vector, i);
+        }
+        return Dad;
+    }
     
     
     public boolean eliminar(String path){
